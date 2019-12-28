@@ -6,7 +6,7 @@ import menu from '../../static/img/menu.svg'
 import styled from '@emotion/styled'
 
 const Header = props => {
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState('unset')
   const [menuStatus, setMenuStatus] = useState(false)
 
   if (typeof window !== 'undefined' && user === 'unset') {
@@ -83,20 +83,22 @@ const Header = props => {
           </Link>
         )}
       </Links>
-      <div className="user">
+      <Link href='/user'>
+        <div className="user">
           {user ? (
-            <div>
+            <>
               <a>{user.nickName}</a>
               <div className="img">
                 <img src={user.imgUrl || raccon} alt="" />
               </div>
-            </div>
+            </>
           ) : (
             <Link href="/login">
               <a className="login desktop">Login</a>
             </Link>
           )}
         </div>
+      </Link>
       <MenuIcon onClick={menuIsActive} src={menu} />
     </HeaderSt>
   )

@@ -7,7 +7,7 @@ const Footer = (props) => {
   return (
     <FooterSt>
       <div className="wrapper">
-        <div><a href="https://nbt-team.me/">Git Hub page</a></div>
+        <div><a href="https://nbt-team.me/">GitHub page</a></div>
         <MadeWith><span>Made with <Img src={heart} alt="heart"/> & <Img src={coffee} alt=""/> </span></MadeWith>
       </div>
     </FooterSt>

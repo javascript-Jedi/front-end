@@ -6,7 +6,7 @@ export const HeaderSt = styled.header`
     padding: 10px 0;
     grid-template-columns: 10% auto 10% !important;
     .user {
-      display: none;   
+      display: none !important;   
     }
     .mobile {
       display: block !important;
@@ -30,7 +30,6 @@ export const HeaderSt = styled.header`
     color: white;
     text-decoration: none;
   }
-
   .user {
     align-content: center;
     display: grid;
@@ -44,12 +43,9 @@ export const HeaderSt = styled.header`
       color: white;
       text-align: right;
     }
-    .img {
-      display: grid;
+    img {
       max-height: calc(10vh - 10px);
-      img {
-        height: 100%;
-      }
+      height: 100%;
     }
   }
 `

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { EditPanelSt } from './adminPanelStyled'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { remove } from '../../static/functions'
 
 const EditPanel = props => {
   useEffect(() => {}, [data])
@@ -83,7 +84,10 @@ const Exercises = props => {
   )
 }
 const Courses = props => {
-  debugger
+  const remove = (arr, e, field) => {
+    return props.removeElFromArray(arr, e)
+    
+  }
   return (
     <div className="inputs">
       <div>
@@ -149,10 +153,7 @@ const Courses = props => {
             {props.data.willGet && props.data.willGet.map(e => ( <>
               <textarea type="text" value={e} />
               <button
-                  onClick={() => {
-                    const res = props.removeElFromArray(props.data.willGet, e)
-                    props.setdata({...props.data, willGet: res})
-                  }}
+                  onClick={() => {props.setdata({...props.data, willGet: props.data.willGet.filter(el => {return el!=e})})}}
                 >
                   Delete
                 </button> </>
@@ -204,4 +205,5 @@ const Courses = props => {
     </div>
   )
 }
+
 export default EditPanel
